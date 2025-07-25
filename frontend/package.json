@@ -1,1 +1,13 @@
-
+{
+  "name": "deepwebai-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "echo \"Starting frontend...\"",
+    "build": "echo \"Building frontend...\""
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
