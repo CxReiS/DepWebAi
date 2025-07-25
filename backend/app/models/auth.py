@@ -8,5 +8,6 @@ class LoginRequest(BaseModel):
     password: str
 
 class Token(BaseModel):
-    """JWT token örneği"""
+    """JWT token ve mesaj."""
     access_token: str
+    message: str

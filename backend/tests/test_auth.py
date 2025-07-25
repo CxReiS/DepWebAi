@@ -9,11 +9,13 @@ from app.models.auth import LoginRequest
 
 def test_authenticate_success():
     creds = LoginRequest(username="admin", password="password")
-    token = authenticate(creds)
+    token = authenticate(creds, "tr")
     assert token.access_token == "fake-token"
+    assert token.message == "Giriş başarılı"
 
 
 def test_authenticate_fail():
     creds = LoginRequest(username="user", password="wrong")
-    token = authenticate(creds)
+    token = authenticate(creds, "en")
     assert token.access_token == "invalid"
+    assert token.message == "Invalid username or password"
