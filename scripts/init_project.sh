@@ -1,10 +1,15 @@
 #!/bin/bash
-# Proje kurulum scripti
-
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
-pip install -r backend/requirements.txt
+pip install --upgrade pip
 pip install fastapi uvicorn sqlalchemy pydantic
-
-cd frontend && npm install
+if [ -f "backend/requirements.txt" ]; then
+    pip install -r backend/requirements.txt
+fi
+if [ -f "frontend/package.json" ]; then
+    cd frontend
+    npm install || echo "Frontend kurulumu için package.json eksik/hatalı."
+    cd ..
+fi
+echo "Kurulum tamamlandı."
 
