@@ -1,0 +1,1 @@
+FastAPI tabanlı Yapay Zeka
