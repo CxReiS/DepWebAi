@@ -3,11 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "echo \"Starting frontend...\"",
-    "build": "echo \"Building frontend...\""
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite preview"
   },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0"
   }
 }

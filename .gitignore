@@ -1,0 +1,18 @@
+# Python venv
+venv/
+__pycache__/
+
+# Node modules
+node_modules/
+
+# Secrets directory
+secrets/
+
+# Environment files
+.env
+
+# Frontend build
+frontend/dist/
+
+# Misc
+*.pyc
