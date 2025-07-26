@@ -1,18 +1,25 @@
-"""Kullanıcı kimlik doğrulama işlemleri."""
+"""Auth endpointleri."""
 
-from fastapi import APIRouter, Query
-from app.models.auth import LoginRequest, Token
-from app.services.auth_service import authenticate
-from app.utils.helpers import get_message
+from fastapi import APIRouter, Depends, Query
+from sqlalchemy.orm import Session
 
-router = APIRouter()
+from app.models.auth import LoginRequest, Token, UserCreate
+from app.models.user import UserRead
+from app.services.auth_service import authenticate, register_user
+from app.database.session import get_db
+
+router = APIRouter(prefix="/auth")
+
 
 @router.post("/login", response_model=Token)
-def login(credentials: LoginRequest, lang: str = Query("en")):
-    """Giriş endpointi"""
-    return authenticate(credentials, lang)
+def login(
+    credentials: LoginRequest,
+    db: Session = Depends(get_db),
+    lang: str = Query("en"),
+):
+    return authenticate(credentials, lang=lang, db=db)
 
-@router.post("/register")
-def register(user: LoginRequest, lang: str = Query("en")):
-    """Kayıt endpointi sadece örnek"""
-    return {"message": get_message("user_registered", lang), "user": user.username}
+
+@router.post("/register", response_model=UserRead)
+def register(user: UserCreate, db: Session = Depends(get_db)):
+    return register_user(db, user)

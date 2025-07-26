@@ -1,0 +1,2 @@
+"""Uygulama paketini basitçe tanıtır."""
+
