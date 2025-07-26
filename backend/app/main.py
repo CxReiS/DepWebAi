@@ -13,6 +13,6 @@ def health_check(lang: str = Query("en", description="Dil kodu")):
     return {"status": get_message("health_ok", lang)}
 
 # Router'ları ekliyoruz
-app.include_router(auth.router, prefix="/auth")
+app.include_router(auth.router)
 app.include_router(users.router, prefix="/users")
 app.include_router(models.router, prefix="/models")

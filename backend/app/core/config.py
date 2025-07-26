@@ -1,7 +1,7 @@
 """Uygulama ayarlarını yöneten yapı."""
 
 from pathlib import Path
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     """Temel konfigürasyon sınıfı"""
@@ -9,8 +9,9 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "change-me"
     DATABASE_URL: str = "sqlite:///./app.db"
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
+    model_config = {
+        "env_file": ".env",
+        "env_file_encoding": "utf-8",
+    }
 
 settings = Settings()
