@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from app.database.base import Base
+from app.models import user, role
 
 from app.core.config import settings
 
