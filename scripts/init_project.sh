@@ -1,16 +1,7 @@
 #!/bin/bash
+# Basit kurulum: sanal ortam ve paket kurulumu
 python3 -m venv venv
 source venv/bin/activate
-pip install --upgrade pip
-pip install fastapi uvicorn sqlalchemy pydantic
-if [ -f "backend/requirements.txt" ]; then
-    pip install -r backend/requirements.txt
-fi
-if [ -f "frontend/package.json" ]; then
-    cd frontend
-    npm install || echo "Frontend kurulumu için package.json eksik/hatalı."
-    cd ..
-fi
-echo "Kurulum tamamlandı."
-echo "Backend'i başlatmak için: uvicorn backend.app.main:app --reload"
+pip install -r requirements.txt 2>/dev/null || echo "Gerekli paket dosyasi yok"
+echo "Proje hazir"
 
