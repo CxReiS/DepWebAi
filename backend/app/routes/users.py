@@ -1,16 +1,25 @@
-"""Kullanıcı işlemleri."""
+"""Kullanıcı endpointleri."""
 
-from fastapi import APIRouter
-from app.models.user import User
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
 
-router = APIRouter()
+from app.models.user import UserCreate, UserRead
+from app.services.user_service import create_user, get_user, list_users
+from app.database.session import get_db
 
-fake_users_db = [
-    {"id": 1, "username": "alice"},
-    {"id": 2, "username": "bob"},
-]
+router = APIRouter(prefix="/users")
 
-@router.get("/", response_model=list[User])
-def list_users():
-    """Kayıtlı kullanıcıları döndürür."""
-    return fake_users_db
+
+@router.post("/", response_model=UserRead)
+def create(user: UserCreate, db: Session = Depends(get_db)):
+    return create_user(db, user)
+
+
+@router.get("/{user_id}", response_model=UserRead)
+def read(user_id: int, db: Session = Depends(get_db)):
+    return get_user(db, user_id)
+
+
+@router.get("/", response_model=list[UserRead])
+def read_all(db: Session = Depends(get_db)):
+    return list_users(db)
