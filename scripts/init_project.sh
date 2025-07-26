@@ -12,4 +12,5 @@ if [ -f "frontend/package.json" ]; then
     cd ..
 fi
 echo "Kurulum tamamlandı."
+echo "Backend'i başlatmak için: uvicorn backend.app.main:app --reload"
 

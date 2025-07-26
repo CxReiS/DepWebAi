@@ -9,4 +9,8 @@ Basit bir yapay zeka servisinin örnek iskeletini sunar.
 bash scripts/init_project.sh
 ```
 
-Backend uygulaması `uvicorn` ile çalışır, frontend ise Vite kullanır.
+Backend uygulamasını çalıştırmak için:
+```bash
+uvicorn backend.app.main:app --reload
+```
+Frontend ise Vite kullanır.
