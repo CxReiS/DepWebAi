@@ -1,7 +1,9 @@
 // Backend istekleri için basit fonksiyonlar
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export async function login(credentials) {
-  const res = await fetch('/auth/login', {
+  const res = await fetch(`${API_URL}/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials)
@@ -10,6 +12,6 @@ export async function login(credentials) {
 }
 
 export async function getUsers() {
-  const res = await fetch('/users/');
+  const res = await fetch(`${API_URL}/users/`);
   return res.json();
 }
