@@ -417,4 +417,5 @@
 ├── .env                          # Ortam değişkenleri
 ├── .gitignore
 ├── Makefile
-└── README.md                     # Kurulum, tanıtım, özellikler
+├── README.md                     # Kurulum, tanıtım, özellikler
+└── run_all.bat
