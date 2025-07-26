@@ -1,7 +1,7 @@
 """FastAPI uygulama girişi."""
 
 from fastapi import FastAPI, Query
-from app.routes import auth, users
+from app.routes import auth, users, models
 from app.utils.helpers import get_message
 
 app = FastAPI(title="DeepWebAi")
@@ -15,3 +15,4 @@ def health_check(lang: str = Query("en", description="Dil kodu")):
 # Router'ları ekliyoruz
 app.include_router(auth.router, prefix="/auth")
 app.include_router(users.router, prefix="/users")
+app.include_router(models.router, prefix="/models")
