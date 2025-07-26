@@ -1,0 +1,6 @@
+{
+  "health_ok": "ok",
+  "login_success": "Login successful",
+  "login_failed": "Invalid username or password",
+  "user_registered": "User registered"
+}
