@@ -1,0 +1,420 @@
+1. Ana Proje Yapısı (DeepWebAi_Ana_Sema)
+
+/project-root
+│
+├── backend/                      # API Sunucusu
+│   ├── app/
+│   │   ├── core/                 # Temel yapı ve ayarlar
+│   │   │   ├── __init__.py
+│   │   │   ├── config.py         # Ortam değişkenleri ve ayarlar
+│   │   │   ├── logger.py         # Loglama ayarları
+│   │   │   └── security.py       # Şifreleme, JWT vb.
+│   │   │
+│   │   ├── database/             # Veritabanı bağlantısı ve ORM
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py           # SQLAlchemy base
+│   │   │   ├── session.py        # DB session yönetimi
+│   │   │   └── migrations/
+│   │   │       └── __init__.py (Alembic dosyaları)
+│   │   │
+│   │   ├── locale/               # Language
+│   │   │   ├── en.json           # Ingilizce dil desteği
+│   │   │   └── tr.json          # Türkçe dil desteği
+│   │   │
+│   │   ├── models/               # Pydantic şemaları (request/response)
+│   │   │   ├── __init__.py
+│   │   │   ├── auth.py
+│   │   │   └── user.py
+│   │   │   
+│   │   ├── routes/               # API endpoint dosyaları
+│   │   │   ├── __init__.py
+│   │   │   ├── auth.py
+│   │   │   ├── users.py
+│   │   │   └── models.py         # AI model yönetim API’si
+│   │   │
+│   │   ├── services/             # İş mantığı (AI, kullanıcı yönetimi vb.)
+│   │   │   ├── __init__.py
+│   │   │   ├── auth_service.py
+│   │   │   └── model_service.py
+│   │   │
+│   │   ├── utils/                # Yardımcı fonksiyonlar
+│   │   │   ├── __init__.py
+│   │   │   └── helpers.py
+│   │   │
+│   │   ├── __init__.py
+│   │   └── main.py               # FastAPI başlangıç noktası
+│   │
+│   ├── tests/                    # Backend testleri
+│   │   ├── test_auth.py
+│   │   └── test_models.py
+│   │
+│   ├── Dockerfile
+│   └── requirements.txt
+│
+├── frontend/                     # Web Arayüzü
+│   └── public/                   # Statik dosyalar
+│   │   └── favicon.ico
+│   │
+│   ├── src/
+│   │   ├── components/           # UI bileşenleri (Button, Modal, Navbar)
+│   │   │   ├── Button.jsx
+│   │   │   └── Navbar.jsx
+│   │   │
+│   │   ├── hooks/                # Custom hook'lar
+│   │   │   └── useAuth.js
+│   │   │
+│   │   ├── layouts/              # Sayfa şablonları
+│   │   │   └── MainLayout.jsx
+│   │   │
+│   │   ├── pages/                # Sayfalar (Login, Dashboard)
+│   │   │   ├── Dashboard.jsx
+│   │   │   └── Login.jsx
+│   │   │
+│   │   ├── services/             # API istekleri
+│   │   │   └── index.js
+│   │   │
+│   │   ├── store/                # Global state (Redux/Zustand)
+│   │   │   └── store.js
+│   │   │
+│   │   └── styles/               # CSS/SCSS
+│   │   │   └── main.css
+│   │   │
+│   │   └── utils/                # Yardımcı fonksiyonlar
+│   │   │   └── helpers.js
+│   │   │
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── Dockerfile
+│   ├── index.html
+│   └── package.json
+│
+├── features/                     # Uygulama Özellikleri
+│   ├── ai-islemleri/             # AI İşlemleri
+│   │   ├── speech_to_text.py     # Sesi metne çevir
+│   │   ├── tokenizer.py          # Tokenizer ile token ölçümü
+│   │   ├── context_manager.py    # Bağlam kurma yapısı
+│   │   ├── document_summary.py   # Döküman analizi ve özetleme
+│   │   └── chatbot_api.py        # Chatbot API entegrasyonu
+│   │
+│   ├── dosya-isleme/             # Dosya İşleme
+│   │   ├── pdf_reader.py         # PDF, Word, TXT okuma
+│   │   ├── text_cleaner.py       # Metin temizleme
+│   │   └── ocr_processor.py      # OCR ile resimden metin çıkarma
+│   │
+│   └── izleme-loglama/           # İzleme & Loglama
+│   │   ├── logger.py             # Log dosyaları
+│   │   └── performance_report.py # Performans ve hata raporları
+│   │
+│   ├── kullanici-yonetimi/       # Kullanıcı Yönetimi
+│   │   ├── register.py           # Kayıt
+│   │   ├── login.py              # Giriş
+│   │   ├── jwt_auth.py           # JWT doğrulama
+│   │   └── role_based_access.py  # Rol tabanlı yetkilendirme
+│   │
+│   ├── tema-ui/                  # Tema & UI
+│   │   ├── dark_light_theme.py   # Dark/Light tema desteği
+│   │   ├── customizable_panels.py# Özelleştirilebilir paneller
+│   │   └── notification_system.py# Bildirim sistemi (toast, websocket)
+│   │
+│   └── web-arama/                # Web Arama
+│       └── search_integration.py # Google / Bing API entegrasyonu
+
+│
+├── analytics/                    # Analitik ve İçgörü
+│   ├── kullanici-davranislari/   # Kullanıcı Davranışları
+│   │   ├── visit_count.py        # Ziyaretçi sayısı
+│   │   ├── session_duration.py   # Oturum süresi
+│   │   └── click_map.py          # Tıklama haritaları
+│   │
+│   ├── performans-metrikleri/    # Performans Metrikleri
+│   │   ├── api_response_time.py  # API yanıt süreleri
+│   │   ├── error_rate.py         # Hata oranları
+│   │   └── resource_usage.py     # Kaynak kullanımı (CPU/RAM)
+│   │
+│   ├── analitik-araclar/         # Analitik Araçlar
+│   │   ├── google_analytics.py   # Google Analytics entegrasyonu
+│   │   ├── mixpanel.py           # Mixpanel entegrasyonu
+│   │   └── event_tracking.py     # Custom event tracking
+│   │
+│   └── raporlama/                # Raporlama
+│       ├── weekly_report.py      # Haftalık raporlar
+│       └── export_pdf_csv.py     # PDF/CSV çıktı desteği
+│
+├── api/                          # API Akış Şeması
+│   ├── auth/                     # Kimlik Doğrulama
+│   │   ├── login.py              # POST /login → JWT token
+│   │   └── register.py           # POST /register
+│   │
+│   ├── users/                    # Kullanıcılar
+│   │   ├── get_users.py          # GET /users → Kullanıcı listesi
+│   │   └── get_user_by_id.py     # GET /users/{id} → Kullanıcı detayları
+│   │
+│   ├── ai/                       # AI İşlemleri
+│   │   ├── voice_to_text.py      # POST /voice-to-text → Ses→Metin
+│   │   ├── tokenize.py           # POST /tokenize → Token sayısı
+│   │   ├── context.py            # POST /context → Bağlam yönetimi
+│   │   ├── document_summary.py   # POST /document-summary → Özet
+│   │   └── chat.py               # POST /chat → LLM yanıt
+│   │
+│   └── health/                   # Sağlık Kontrol
+│       └── health_check.py       # GET /health → Servis durumu
+│
+├── backup/                       # Yedekleme ve Kurtarma
+│   ├── database-backup/          # Veritabanı Yedekleme
+│   │   ├── daily_backup.py       # Günlük otomatik yedek
+│   │   └── versioned_backup.py   # Versiyonlama (timestamp bazlı)
+│   │
+│   ├── file-backup/              # Dosya Yedekleme
+│   │   ├── upload_backup.py      # Upload klasörleri
+│   │   └── log_archive.py        # Log arşivleme
+│   │
+│   ├── recovery/                 # Geri Yükleme (Recovery)
+│   │   ├── snapshot_restore.py   # Snapshot geri alma
+│   │   └── manual_recovery.py    # Manuel kurtarma senaryoları
+│   │
+│   └── storage/                  # Depolama
+│       ├── s3_storage.py         # AWS S3 / Google Cloud Storage
+│       └── local_storage.py      # Lokal yedek klasörleri
+│
+├── database/
+│   ├── seeds/                    # Test ve başlangıç verileri
+│   │   ├── users_seed.sql            
+│   │   └── models_seed.sql
+│   │
+│   ├── init.sql                      # Başlangıç tabloları
+│   │
+│   ├── migrations/                   # Alembic migration dosyaları
+│   │   └── env.py
+│   │
+│   └── orm/                          # ORM (SQLAlchemy)
+│       ├── models.py                 # SQLAlchemy model tanımları
+│       └── session.py                # Session yönetimi
+│
+├── deployment/                   # Dağıtım & DevOps
+│   ├── environments/             # Ortamlar
+│   │   ├── development.env       # Local geliştirme değişkenleri
+│   │   ├── staging.env           # Test sunucusu değişkenleri
+│   │   └── production.env        # Prodüksiyon değişkenleri
+│   │
+│   ├── ci-cd-pipeline/           # CI/CD Pipeline - CI/CD dosyaları (GitHub Actions vb.)
+│   │   ├── pipeline.yml
+│   │   ├── build.yml             # Build adımları
+│   │   ├── test.yml              # Test adımları
+│   │   ├── deploy.yml            # Deploy adımları
+│   │   └── registry_push.yml     # Docker registry push
+│   │
+│   ├── infrastructure/           # Sunucu Yapısı
+│   │   ├── nginx/                # Nginx reverse proxy
+│   │   │   └── nginx.conf
+│   │   └── ssl/                  # SSL/TLS sertifikaları
+│   │       ├── cert.pem
+│   │       └── key.pem
+│   │
+│   └── monitoring/               # İzleme
+│       └── elk-stack/            # ELK stack konfigürasyon
+│           ├── elasticsearch.yml
+│           ├── logstash.conf
+│           └── kibana.yml
+│
+├── docs/                          # Dokümantasyon
+│   ├── api_reference.md           # API endpoint açıklamaları (Swagger / OpenAPI)
+│   ├── developer_guide/
+│   │   ├── installation.md        # Kurulum adımları
+│   │   ├── environment_setup.md   # Geliştirme ortamı ayarları
+│   │   └── coding_standards.md    # Kod standartları
+│   │
+│   ├── user_guide/
+│   │   ├── ui_overview.md         # Kullanıcı arayüzü açıklamaları
+│   │   └── usage_scenarios.md     # Temel kullanım senaryoları
+│   │
+│   └── changelog/
+│       └── version_history.md     # Sürüm geçmişi
+│
+├── docker/
+│   └── docker-compose.yml
+│
+├── event-flow/                   # Olay & Event Akış Şeması
+│   ├── kullanici-istegi/         # Kullanıcı isteği
+│   │   ├── frontend_to_backend.py
+│   │   ├── backend_to_ai_service.py
+│   │   ├── ai_response_db_record.py
+│   │   └── backend_to_frontend.py
+│   └── websocket-eventleri/      # WebSocket Eventleri
+│       ├── realtime_message.py
+│       └── user_notifications.py
+│
+├── future-improvements/          # Gelecekteki Geliştirme Alanları
+│   ├── planned-features/         # Planlanan Özellikler
+│   │   ├── new_ai_modules.py     # Gelişmiş RAG, özel LLM
+│   │   ├── mobile_app_integration.py
+│   │   └── multilingual_support.py
+│   │
+│   ├── performance-improvements/ # Performans İyileştirmeleri
+│   │   ├── caching_strategies.py
+│   │   ├── load_balancing.py
+│   │   └── edge_computing_support.py
+│   │
+│   ├── design-updates/           # Tasarım Güncellemeleri
+│   │   ├── theme_variations.py
+│   │   ├── dashboard_redesign.py
+│   │   └── advanced_animations.py
+│   │
+│   └── tools-integrations/       # Araç & Entegrasyonlar
+│       ├── slack_integration.py
+│       ├── webhook_services.py
+│       └── new_api_providers.py
+│
+├── models/                       # Modeller
+│   ├── nlp-llm-modules/          # NLP & LLM Modülleri
+│   │   ├── tokenizer.py          # Token ölçümü
+│   │   ├── context_manager.py    # Bağlam / geçmiş yönetimi
+│   │   ├── speech_to_text_whisper.py  # Ses→Metin (Whisper)
+│   │   ├── document_summarizer.py     # Döküman özetleme
+│   │   └── deep_thought_engine.py     # Derin düşünce motoru
+│   │
+│   ├── visual-analysis/          # Görsel Analiz
+│   │   └── ocr_image_captioning.py    # OCR + Image Captioning
+│   │
+│   └── external-services/        # Harici Servisler
+│       ├── deepseek_api.py       # Deepseek API entegrasyonu
+│       └── huggingface_models.py # HuggingFace modelleri
+│
+├── monitoring/                   # İzleme & Monitoring
+│   ├── logging/                  # Loglama
+│   │   ├── app_errors.py         # Uygulama hataları
+│   │   └── audit_logs.py         # Kullanıcı aktiviteleri
+│   │
+│   ├── analytics/                # Analitik
+│   │   ├── frontend_events.py    # Kullanıcı davranışları
+│   │   └── api_performance.py    # API performans metrikleri
+│   │
+│   ├── tools/                    # İzleme Araçları
+│   │   ├── prometheus_config.py  # Prometheus yapılandırma
+│   │   ├── grafana_dashboard.py  # Grafana dashboard
+│   │   └── sentry_setup.py       # Sentry hata takibi
+│   │
+│   └── alerts/                   # Uyarı Mekanizmaları
+│       ├── email_notifications.py# E-mail bildirimi
+│       ├── slack_webhook.py      # Slack/Webhook entegrasyonu
+│       └── websocket_alerts.py   # WebSocket bildirimleri
+│
+├── network/                     # Ağ Yapılandırması
+│   ├── api-gateway/             # API Gateway (Nginx)
+│   │   ├── frontend_proxy.py    # 80 → Frontend (React)
+│   │   └── backend_proxy.py     # 8000 → Backend (FastAPI)
+│   │
+│   ├── backend/                 # Backend (FastAPI)
+│   │   ├── rest_api.py          # /auth, /users, /ai endpointleri
+│   │   └── websocket_api.py     # /ws gerçek zamanlı iletişim
+│   │
+│   ├── database/                # Veritabanı
+│   │   ├── orm_connection.py    # PostgreSQL/SQLite ORM bağlantısı
+│   │   └── alembic_migrations.py# Alembic migration'ları
+│   │
+│   └── ai-services/             # AI Servisleri
+│       ├── llm_services.py      # Deepseek/HuggingFace entegrasyonu
+│       └── external_api.py      # Harici API bağlantıları
+│
+├── notifications/                # Bildirim ve Mesajlaşma
+│   ├── system-notifications/     # Sistem Bildirimleri
+│   │   ├── email_smtp.py         # E-mail (SMTP)
+│   │   ├── web_push.py           # Push Notifications (Web Push)
+│   │   └── slack_webhook.py      # Slack / Webhook entegrasyonu
+│   │
+│   ├── user-notifications/       # Kullanıcı Bildirimleri
+│   │   ├── toast_alerts.py       # Toast uyarıları
+│   │   └── websocket_notifications.py  # Gerçek zamanlı bildirim (WebSocket)
+│   │
+│   └── queue-system/             # Queue Sistemi
+│       ├── celery_tasks.py       # Celery / RabbitMQ
+│       └── async_task_manager.py # Asenkron görev yönetimi
+│
+├── performance/                  # Performans & Cache :contentReference[oaicite:1]{index=1}
+│   ├── backend-optimization/     # Backend Optimizasyon
+│   │   ├── fastapi_async_endpoints.py    # FastAPI async endpointler
+│   │   ├── query_optimization.py         # Query optimizasyon (SQLAlchemy)
+│   │   └── response_compression.py       # Response compression (GZip)
+│   │
+│   ├── cache/                    # Cache
+│   │   ├── redis_cache.py        # Redis cache (API yanıtları)
+│   │   ├── rate_limiting.py      # Rate limiting
+│   │   └── session_caching.py    # Session caching
+│   │
+│   ├── frontend-performance/     # Frontend Performans
+│   │   ├── lazy_loading.py       # Lazy-loading
+│   │   ├── react_memo_suspense.py# React.memo ve Suspense
+│   │   └── code_splitting.py     # Code-splitting (dynamic imports)
+│   │
+│   └── cdn-proxy/                # CDN ve Proxy
+│       ├── static_file_distribution.py  # Statik dosya dağıtımı
+│       └── nginx_caching.py             # Nginx caching
+│
+├── scripts/                      # Yardımcı script'ler (setup, test vb.)
+│   └── init_project.sh
+│
+├── security/                     # Güvenlik :contentReference[oaicite:3]{index=3}
+│   ├── jwt-oauth2/               # JWT & OAuth2
+│   │   ├── access_refresh_token.py
+│   │   └── role_based_access.py
+│   │
+│   ├── encryption/               # Şifreleme
+│   │   ├── bcrypt.py
+│   │   └── secrets_management.py
+│   │
+│   └── api-security/             # API Güvenliği
+│       ├── rate_limiting.py
+│       ├── cors_control.py
+│       └── https_ssl.py
+│
+├── style/                        # Stil ve CSS Şeması :contentReference[oaicite:2]{index=2}
+│   ├── variables.css
+│   ├── layout.css
+│   ├── components.css
+│   └── themes/
+│       ├── light.css
+│       └── dark.css
+│
+├── tests/                        # Test ve QA :contentReference[oaicite:3]{index=3}
+│   ├── backend/                  # Backend Testleri (Pytest)
+│   │   ├── test_auth.py
+│   │   ├── test_users.py
+│   │   └── test_database.py
+│   │
+│   ├── frontend/                 # Frontend Testleri
+│   │   ├── jest.config.js
+│   │   └── react-testing-library/
+│   │       ├── Button.test.jsx
+│   │       └── Navbar.test.jsx
+│   │
+│   └── ci-cd/                    # CI/CD Testleri
+│       ├── pip_audit.py
+│       └── bandit_scan.py
+│
+├── ui-components/                # UI Bileşenleri :contentReference[oaicite:1]{index=1}
+│   ├── temel-bilesenler/         # Temel Bileşenler
+│   │   ├── Button.jsx
+│   │   ├── Input.jsx
+│   │   ├── Checkbox.jsx
+│   │   ├── Dropdown.jsx
+│   │   └── Modal.jsx
+│   │
+│   ├── navigasyon/               # Navigasyon
+│   │   ├── Navbar.jsx
+│   │   ├── Sidebar.jsx
+│   │   └── TabBar.jsx
+│   │
+│   ├── dashboard-ogeleri/        # Dashboard Öğeleri
+│   │   ├── Panel.jsx
+│   │   ├── Widget.jsx
+│   │   └── Card.jsx
+│   │
+│   └── gorsel-elemanlar/         # Görsel Elemanlar
+│       ├── Avatar.jsx
+│       ├── Badge.jsx
+│       └── Tooltip.jsx
+│
+├── .env                          # Ortam değişkenleri
+├── .gitignore
+├── Makefile
+└── README.md                     # Kurulum, tanıtım, özellikler

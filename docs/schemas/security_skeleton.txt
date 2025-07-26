@@ -1,0 +1,16 @@
+8. Güvenlik Şeması (Security Skeleton)
+
+/security                     # Güvenlik :contentReference[oaicite:3]{index=3}
+│
+├── jwt-oauth2/               # JWT & OAuth2
+│   ├── access_refresh_token.py
+│   └── role_based_access.py
+│
+├── encryption/               # Şifreleme
+│   ├── bcrypt.py
+│   └── secrets_management.py
+│
+└── api-security/             # API Güvenliği
+    ├── rate_limiting.py
+    ├── cors_control.py
+    └── https_ssl.py

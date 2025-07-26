@@ -1,0 +1,32 @@
+4. Özellikler Şeması (Features Skeleton)
+
+/features                      # Uygulama Özellikleri
+├── kullanici-yonetimi/       # Kullanıcı Yönetimi
+│   ├── register.py           # Kayıt
+│   ├── login.py              # Giriş
+│   ├── jwt_auth.py           # JWT doğrulama
+│   └── role_based_access.py  # Rol tabanlı yetkilendirme
+│
+├── tema-ui/                  # Tema & UI
+│   ├── dark_light_theme.py   # Dark/Light tema desteği
+│   ├── customizable_panels.py# Özelleştirilebilir paneller
+│   └── notification_system.py# Bildirim sistemi (toast, websocket)
+│
+├── ai-islemleri/             # AI İşlemleri
+│   ├── speech_to_text.py     # Sesi metne çevir
+│   ├── tokenizer.py          # Tokenizer ile token ölçümü
+│   ├── context_manager.py    # Bağlam kurma yapısı
+│   ├── document_summary.py   # Döküman analizi ve özetleme
+│   └── chatbot_api.py        # Chatbot API entegrasyonu
+│
+├── dosya-isleme/             # Dosya İşleme
+│   ├── pdf_reader.py         # PDF, Word, TXT okuma
+│   ├── text_cleaner.py       # Metin temizleme
+│   └── ocr_processor.py      # OCR ile resimden metin çıkarma
+│
+├── web-arama/                # Web Arama
+│   └── search_integration.py # Google / Bing API entegrasyonu
+│
+└── izleme-loglama/           # İzleme & Loglama
+    ├── logger.py             # Log dosyaları
+    └── performance_report.py # Performans ve hata raporları

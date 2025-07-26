@@ -1,0 +1,19 @@
+5. Ağ Yapılandırma Şeması (Network Skeleton)
+
+/network                     # Ağ Yapılandırması
+│
+├── api-gateway/             # API Gateway (Nginx)
+│   ├── frontend_proxy.py    # 80 → Frontend (React)
+│   └── backend_proxy.py     # 8000 → Backend (FastAPI)
+│
+├── backend/                 # Backend (FastAPI)
+│   ├── rest_api.py          # /auth, /users, /ai endpointleri
+│   └── websocket_api.py     # /ws gerçek zamanlı iletişim
+│
+├── database/                # Veritabanı
+│   ├── orm_connection.py    # PostgreSQL/SQLite ORM bağlantısı
+│   └── alembic_migrations.py# Alembic migration'ları
+│
+└── ai-services/             # AI Servisleri
+    ├── llm_services.py      # Deepseek/HuggingFace entegrasyonu
+    └── external_api.py      # Harici API bağlantıları

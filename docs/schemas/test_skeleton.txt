@@ -1,0 +1,18 @@
+11. Test ve QA Şeması (Test Skeleton)
+
+/tests                        # Test ve QA :contentReference[oaicite:3]{index=3}
+│
+├── backend/                  # Backend Testleri (Pytest)
+│   ├── test_auth.py
+│   ├── test_users.py
+│   └── test_database.py
+│
+├── frontend/                 # Frontend Testleri
+│   ├── jest.config.js
+│   └── react-testing-library/
+│       ├── Button.test.jsx
+│       └── Navbar.test.jsx
+│
+└── ci-cd/                    # CI/CD Testleri
+    ├── pip_audit.py
+    └── bandit_scan.py

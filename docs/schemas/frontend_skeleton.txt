@@ -1,0 +1,40 @@
+3. Frontend Yapısı (Frontend Skeleton)
+
+frontend/
+│
+├── public/                  # Statik dosyalar
+│   └── favicon.ico
+│
+├── src/
+│   ├── components/          # UI Bileşenleri
+│   │   ├── Button.jsx
+│   │   └── Navbar.jsx
+│   │
+│   ├── hooks/                # Custom hook'lar
+│   │   └── useAuth.js
+│   │
+│   ├── layouts/              # Sayfa şablonları
+│   │   └── MainLayout.jsx
+│   │
+│   ├── pages/                # Sayfalar (Login, Dashboard)
+│   │   ├── Dashboard.jsx
+│   │   └── Login.jsx
+│   │
+│   ├── services/             # API istekleri
+│   │   └── index.js
+│   │
+│   ├── store/                # Global state (Redux/Zustand)
+│   │   └── store.js
+│   │
+│   └── styles/               # CSS/SCSS
+│   │   └── main.css
+│   │
+│   └── utils/                # Yardımcı fonksiyonlar
+│   │   └── helpers.js
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── Dockerfile
+├── index.html
+└── package.json

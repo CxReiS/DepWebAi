@@ -1,0 +1,21 @@
+13. İzleme ve Monitoring Şeması (Monitoring Skeleton)
+
+/monitoring                   # İzleme & Monitoring
+│
+├── logging/                  # Loglama
+│   ├── app_errors.py         # Uygulama hataları
+│   └── audit_logs.py         # Kullanıcı aktiviteleri
+│
+├── analytics/                # Analitik
+│   ├── frontend_events.py    # Kullanıcı davranışları
+│   └── api_performance.py    # API performans metrikleri
+│
+├── tools/                    # İzleme Araçları
+│   ├── prometheus_config.py  # Prometheus yapılandırma
+│   ├── grafana_dashboard.py  # Grafana dashboard
+│   └── sentry_setup.py       # Sentry hata takibi
+│
+└── alerts/                   # Uyarı Mekanizmaları
+    ├── email_notifications.py# E-mail bildirimi
+    ├── slack_webhook.py      # Slack/Webhook entegrasyonu
+    └── websocket_alerts.py   # WebSocket bildirimleri

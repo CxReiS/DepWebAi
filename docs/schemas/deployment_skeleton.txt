@@ -1,0 +1,26 @@
+16. Dağıtım ve DevOps Şeması (Deployment Skeleton)
+
+/deployment                         # Dağıtım & DevOps
+├── environments/             # Ortamlar
+│   ├── development.env       # Local geliştirme değişkenleri
+│   ├── staging.env           # Test sunucusu değişkenleri
+│   └── production.env        # Prodüksiyon değişkenleri
+│
+├── ci-cd-pipeline/           # CI/CD Pipeline
+│   ├── build.yml             # Build adımları
+│   ├── test.yml              # Test adımları
+│   ├── deploy.yml            # Deploy adımları
+│   └── registry_push.yml     # Docker registry push
+│
+├── infrastructure/           # Sunucu Yapısı
+│   ├── nginx/                # Nginx reverse proxy
+│   │   └── nginx.conf
+│   └── ssl/                  # SSL/TLS sertifikaları
+│       ├── cert.pem
+│       └── key.pem
+│
+└── monitoring/               # İzleme
+    └── elk-stack/            # ELK stack konfigürasyon
+        ├── elasticsearch.yml
+        ├── logstash.conf
+        └── kibana.yml

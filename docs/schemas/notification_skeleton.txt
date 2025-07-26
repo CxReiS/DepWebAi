@@ -1,0 +1,16 @@
+18. Bildirim ve Mesajlaşma Şeması (Notification Skeleton)
+
+/notifications                # Bildirim ve Mesajlaşma
+│
+├── system-notifications/     # Sistem Bildirimleri
+│   ├── email_smtp.py         # E-mail (SMTP)
+│   ├── web_push.py           # Push Notifications (Web Push)
+│   └── slack_webhook.py      # Slack / Webhook entegrasyonu
+│
+├── user-notifications/       # Kullanıcı Bildirimleri
+│   ├── toast_alerts.py       # Toast uyarıları
+│   └── websocket_notifications.py  # Gerçek zamanlı bildirim (WebSocket)
+│
+└── queue-system/             # Queue Sistemi
+    ├── celery_tasks.py       # Celery / RabbitMQ
+    └── async_task_manager.py # Asenkron görev yönetimi

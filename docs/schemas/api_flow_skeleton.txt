@@ -1,0 +1,20 @@
+7. API Akış Şeması (API Flow Skeleton)
+
+/api                           # API Akış Şeması
+├── auth/                     # Kimlik Doğrulama
+│   ├── login.py              # POST /login → JWT token
+│   └── register.py           # POST /register
+│
+├── users/                    # Kullanıcılar
+│   ├── get_users.py          # GET /users → Kullanıcı listesi
+│   └── get_user_by_id.py     # GET /users/{id} → Kullanıcı detayları
+│
+├── ai/                       # AI İşlemleri
+│   ├── voice_to_text.py      # POST /voice-to-text → Ses→Metin
+│   ├── tokenize.py           # POST /tokenize → Token sayısı
+│   ├── context.py            # POST /context → Bağlam yönetimi
+│   ├── document_summary.py   # POST /document-summary → Özet
+│   └── chat.py               # POST /chat → LLM yanıt
+│
+└── health/                   # Sağlık Kontrol
+    └── health_check.py       # GET /health → Servis durumu

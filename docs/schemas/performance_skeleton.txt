@@ -1,0 +1,22 @@
+14. Performans ve Cache Şeması (Performance Skeleton)
+
+/performance                  # Performans & Cache :contentReference[oaicite:1]{index=1}
+│
+├── backend-optimization/     # Backend Optimizasyon
+│   ├── fastapi_async_endpoints.py    # FastAPI async endpointler
+│   ├── query_optimization.py         # Query optimizasyon (SQLAlchemy)
+│   └── response_compression.py       # Response compression (GZip)
+│
+├── cache/                    # Cache
+│   ├── redis_cache.py        # Redis cache (API yanıtları)
+│   ├── rate_limiting.py      # Rate limiting
+│   └── session_caching.py    # Session caching
+│
+├── frontend-performance/     # Frontend Performans
+│   ├── lazy_loading.py       # Lazy-loading
+│   ├── react_memo_suspense.py# React.memo ve Suspense
+│   └── code_splitting.py     # Code-splitting (dynamic imports)
+│
+└── cdn-proxy/                # CDN ve Proxy
+    ├── static_file_distribution.py  # Statik dosya dağıtımı
+    └── nginx_caching.py             # Nginx caching

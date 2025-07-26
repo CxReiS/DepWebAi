@@ -1,0 +1,16 @@
+15. Dokümantasyon Şeması (Documentation Skeleton)
+
+/docs                          # Dokümantasyon
+│
+├── api_reference.md           # API endpoint açıklamaları (Swagger / OpenAPI)
+├── developer_guide/
+│   ├── installation.md        # Kurulum adımları
+│   ├── environment_setup.md   # Geliştirme ortamı ayarları
+│   └── coding_standards.md    # Kod standartları
+│
+├── user_guide/
+│   ├── ui_overview.md         # Kullanıcı arayüzü açıklamaları
+│   └── usage_scenarios.md     # Temel kullanım senaryoları
+│
+└── changelog/
+    └── version_history.md     # Sürüm geçmişi

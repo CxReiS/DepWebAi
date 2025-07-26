@@ -1,0 +1,12 @@
+10. Olay ve Event Akış Şeması (Event Flow Skeleton)
+
+/event-flow                   # Olay & Event Akış Şeması
+│
+├── kullanici-istegi/         # Kullanıcı isteği
+│   ├── frontend_to_backend.py
+│   ├── backend_to_ai_service.py
+│   ├── ai_response_db_record.py
+│   └── backend_to_frontend.py
+└── websocket-eventleri/      # WebSocket Eventleri
+    ├── realtime_message.py
+    └── user_notifications.py

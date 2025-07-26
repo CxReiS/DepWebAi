@@ -1,0 +1,21 @@
+19. Analitik ve İçgörü Şeması (Analytics Skeleton)
+
+/analytics                         # Analitik ve İçgörü
+├── kullanici-davranislari/   # Kullanıcı Davranışları
+│   │   ├── visit_count.py        # Ziyaretçi sayısı
+│   │   ├── session_duration.py   # Oturum süresi
+│   │   └── click_map.py          # Tıklama haritaları
+│   │   
+│   ├── performans-metrikleri/    # Performans Metrikleri
+│   │   ├── api_response_time.py  # API yanıt süreleri
+│   │   ├── error_rate.py         # Hata oranları
+│   │   └── resource_usage.py     # Kaynak kullanımı (CPU/RAM)
+│   │   
+│   ├── analitik-araclar/         # Analitik Araçlar
+│   │   ├── google_analytics.py   # Google Analytics entegrasyonu
+│   │   ├── mixpanel.py           # Mixpanel entegrasyonu
+│   │   └── event_tracking.py     # Custom event tracking
+│   │
+│   └── raporlama/                # Raporlama
+        ├── weekly_report.py      # Haftalık raporlar
+        └── export_pdf_csv.py     # PDF/CSV çıktı desteği

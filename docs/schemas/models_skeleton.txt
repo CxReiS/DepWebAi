@@ -1,0 +1,17 @@
+6. Modeller Şeması (Models Skeleton)
+
+/models                       # Modeller
+|
+├── nlp-llm-modules/          # NLP & LLM Modülleri
+│   ├── tokenizer.py          # Token ölçümü
+│   ├── context_manager.py    # Bağlam / geçmiş yönetimi
+│   ├── speech_to_text_whisper.py  # Ses→Metin (Whisper)
+│   ├── document_summarizer.py     # Döküman özetleme
+│   └── deep_thought_engine.py     # Derin düşünce motoru
+│
+├── visual-analysis/          # Görsel Analiz
+│   └── ocr_image_captioning.py    # OCR + Image Captioning
+│
+└── external-services/        # Harici Servisler
+    ├── deepseek_api.py       # Deepseek API entegrasyonu
+    └── huggingface_models.py # HuggingFace modelleri

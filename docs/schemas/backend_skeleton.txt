@@ -1,0 +1,51 @@
+2. Backend Yapısı (Backend Skeleton)
+
+backend/                            # API Sunucusu
+├── app/
+│   ├── core/                 # Temel yapı ve ayarlar
+│   │   ├── __init__.py
+│   │   ├── config.py         # Ortam değişkenleri ve ayarlar
+│   │   ├── logger.py         # Loglama ayarları
+│   │   └── security.py       # Şifreleme, JWT vb.
+│   │
+│   ├── database/             # Veritabanı bağlantısı ve ORM
+│   │   ├── __init__.py
+│   │   ├── base.py           # SQLAlchemy base
+│   │   ├── session.py        # DB session yönetimi
+│   │   └── migrations/
+│   │       └── __init__.py (Alembic dosyaları)
+│   │
+│   ├── locale/               # Language
+│   │   ├── en.json           # Ingilizce dil desteği
+│   │   └── tr.json          # Türkçe dil desteği
+│   │
+│   ├── models/               # Pydantic şemaları (request/response)
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   └── user.py
+│   │   
+│   ├── routes/               # API endpoint dosyaları
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   ├── users.py
+│   │   └── models.py         # AI model yönetim API’si
+│   │
+│   ├── services/             # İş mantığı (AI, kullanıcı yönetimi vb.)
+│   │   ├── __init__.py
+│   │   ├── auth_service.py
+│   │   └── model_service.py
+│   │
+│   ├── utils/                # Yardımcı fonksiyonlar
+│   │   ├── __init__.py
+│   │   └── helpers.py
+│   │
+│   ├── __init__.py
+│   └── main.py               # FastAPI başlangıç noktası
+│   
+├── tests/                    # Backend testleri
+│   ├── test_auth.py
+│   └── test_models.py
+│   
+├── __init__.py
+├── Dockerfile
+└── requirements.txt

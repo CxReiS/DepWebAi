@@ -1,0 +1,9 @@
+9. Stil ve CSS Şeması (Style Skeleton)
+
+frontend/src/styles/
+│   ├── variables.css    # Renk paleti, fontlar
+│   ├── layout.css       # Genel layout stilleri
+│   ├── components.css   # Button, Navbar gibi UI bileşenleri
+│   └── themes/
+│       ├── light.css
+│       └── dark.css

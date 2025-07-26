@@ -1,0 +1,18 @@
+20. Yedekleme ve Kurtarma Şeması (Backup Skeleton)
+
+/backup                            # Yedekleme ve Kurtarma
+├── database-backup/          # Veritabanı Yedekleme
+│   ├── daily_backup.py       # Günlük otomatik yedek
+│   └── versioned_backup.py   # Versiyonlama (timestamp bazlı)
+│
+├── file-backup/              # Dosya Yedekleme
+│   ├── upload_backup.py      # Upload klasörleri
+│   └── log_archive.py        # Log arşivleme
+│
+├── recovery/                 # Geri Yükleme (Recovery)
+│   ├── snapshot_restore.py   # Snapshot geri alma
+│   └── manual_recovery.py    # Manuel kurtarma senaryoları
+│
+└── storage/                  # Depolama
+    ├── s3_storage.py         # AWS S3 / Google Cloud Storage
+    └── local_storage.py      # Lokal yedek klasörleri

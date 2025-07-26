@@ -1,0 +1,25 @@
+12. UI Bileşenleri Şeması (UI Components Skeleton)
+
+/ui-components
+│
+├── Temel Bileşenler
+│   ├── Button.jsx
+│   ├── Input.jsx
+│   ├── Checkbox.jsx
+│   ├── Dropdown.jsx
+│   └── Modal.jsx
+│
+├── Navigasyon
+│   ├── Navbar.jsx
+│   ├── Sidebar.jsx
+│   └── TabBar.jsx
+│
+├── Dashboard Öğeleri
+│   ├── Panel.jsx
+│   ├── Widget.jsx
+│   └── Card.jsx
+│
+└── Görsel Elemanlar
+    ├── Avatar.jsx
+    ├── Badge.jsx
+    └── Tooltip.jsx

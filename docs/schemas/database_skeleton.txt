@@ -1,0 +1,16 @@
+22. Database Şeması (Database Skeleton)
+
+/database
+│
+├── seeds/               # Test ve başlangıç verileri
+│   ├── users_seed.sql
+│   └── models_seed.sql
+│
+├── migrations/          # Alembic migration dosyaları
+│   └── env.py
+│   
+├── init.sql             # Başlangıç tabloları
+│
+└── orm/                          # ORM (SQLAlchemy)
+    ├── models.py                 # SQLAlchemy model tanımları
+    └── session.py                # Session yönetimi
