@@ -1,13 +1,31 @@
-"""Auth ile ilgili Pydantic şemalar."""
+"""Kimlik doğrulama şemaları."""
 
 from pydantic import BaseModel
 
+
 class LoginRequest(BaseModel):
-    """Giriş için kullanıcı bilgileri"""
+    """Giriş bilgilerinin yapısı."""
+
     username: str
     password: str
 
+
+class UserCreate(BaseModel):
+    """Kullanıcı kayıt şeması."""
+
+    username: str
+    password: str
+
+
 class Token(BaseModel):
-    """JWT token ve mesaj."""
+    """Oluşturulan JWT."""
+
     access_token: str
-    message: str
+    token_type: str = "bearer"
+    message: str | None = None
+
+
+class TokenData(BaseModel):
+    """JWT içeriği."""
+
+    sub: str | None = None
