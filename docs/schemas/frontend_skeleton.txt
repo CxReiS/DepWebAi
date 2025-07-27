@@ -7,33 +7,33 @@ frontend/
 │
 ├── src/
 │   ├── components/          # UI Bileşenleri
-│   │   ├── Button.jsx
-│   │   └── Navbar.jsx
+│   │   ├── Button.tsx
+│   │   └── Navbar.tsx
 │   │
 │   ├── hooks/                # Custom hook'lar
-│   │   └── useAuth.js
+│   │   └── useAuth.ts
 │   │
 │   ├── layouts/              # Sayfa şablonları
-│   │   └── MainLayout.jsx
+│   │   └── MainLayout.tsx
 │   │
 │   ├── pages/                # Sayfalar (Login, Dashboard)
-│   │   ├── Dashboard.jsx
-│   │   └── Login.jsx
+│   │   ├── Dashboard.tsx
+│   │   └── Login.tsx
 │   │
 │   ├── services/             # API istekleri
-│   │   └── index.js
+│   │   └── index.ts
 │   │
 │   ├── store/                # Global state (Redux/Zustand)
-│   │   └── store.js
+│   │   └── store.ts
 │   │
 │   └── styles/               # CSS/SCSS
 │   │   └── main.css
 │   │
 │   └── utils/                # Yardımcı fonksiyonlar
-│   │   └── helpers.js
+│   │   └── helpers.ts
 │   │
-│   ├── App.jsx
-│   └── main.jsx
+│   ├── App.tsx
+│   └── main.tsx
 │
 ├── Dockerfile
 ├── index.html

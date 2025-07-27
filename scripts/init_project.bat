@@ -1,5 +1,6 @@
 @echo off
 echo === DeepWebAi Kurulum Baslatiliyor ===
+set "SECRET_KEY_FILE=D:\Python_Gereksinimleri\Venvler\secrets\deepseek.key"
 
 REM Python ve pip kontrolü
 where python >nul 2>nul || (echo Python bulunamadi & exit /b 1)

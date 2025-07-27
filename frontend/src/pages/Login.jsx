@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { login } from '../services/api';
 import Input from '../components/Input';
 import Button from '../components/Button';
-import { useToast } from '../hooks/useToast';
+import { useToast } from '../hooks/useToast.jsx';
 
 export default function Login() {
   const [username, setUsername] = useState('');

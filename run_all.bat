@@ -2,6 +2,7 @@
 REM ---- Kök dizini bul ----
 set "ROOT=%~dp0"
 cd /d "%ROOT%"
+set "SECRET_KEY_FILE=D:\Python_Gereksinimleri\Venvler\secrets\deepseek.key"
 
 REM --- Backend Başlat ---
 if not exist backend\venv (
