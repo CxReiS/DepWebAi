@@ -53,7 +53,9 @@
 │
 ├── frontend/                     # Web Arayüzü
 │   └── public/                   # Statik dosyalar
-│   │   └── favicon.ico
+│   │   ├── favicon.ico
+│   │   ├── react.svg
+│   │   └── vite.svg
 │   │
 │   ├── src/
 │   │   ├── components/           # UI bileşenleri (Button, Modal, Navbar)
