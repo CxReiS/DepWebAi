@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
-import { useToast } from '../hooks/useToast';
+import { useToast } from '../hooks/useToast.jsx';
 import { register } from '../services/api';
 
 export default function Register() {
