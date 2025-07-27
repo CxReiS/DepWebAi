@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useTheme } from '../hooks/useTheme.jsx';
+import { useTheme } from '../hooks/useTheme';
 import Avatar from './Avatar';
 
 export default function Navbar() {

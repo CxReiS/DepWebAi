@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
-import { useToast } from '../hooks/useToast.jsx';
-import { register } from '../services/api';
+import { useToast } from '../hooks/useToast';
+import { register } from '../services';
 
 export default function Register() {
   const [username, setUsername] = useState('');

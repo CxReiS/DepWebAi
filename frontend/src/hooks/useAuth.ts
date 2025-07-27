@@ -1,6 +1,6 @@
 // Giriş işlemleri için basit hook
-import { useStore } from '../store/store.jsx';
-import { login as apiLogin } from '../services/api';
+import { useStore } from '../store/store';
+import { login as apiLogin } from '../services';
 
 export default function useAuth() {
   const { user, setUser } = useStore();
