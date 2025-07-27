@@ -57,33 +57,33 @@
 │   │
 │   ├── src/
 │   │   ├── components/           # UI bileşenleri (Button, Modal, Navbar)
-│   │   │   ├── Button.jsx
-│   │   │   └── Navbar.jsx
+│   │   │   ├── Button.tsx
+│   │   │   └── Navbar.tsx
 │   │   │
 │   │   ├── hooks/                # Custom hook'lar
-│   │   │   └── useAuth.js
+│   │   │   └── useAuth.ts
 │   │   │
 │   │   ├── layouts/              # Sayfa şablonları
-│   │   │   └── MainLayout.jsx
+│   │   │   └── MainLayout.tsx
 │   │   │
 │   │   ├── pages/                # Sayfalar (Login, Dashboard)
-│   │   │   ├── Dashboard.jsx
-│   │   │   └── Login.jsx
+│   │   │   ├── Dashboard.tsx
+│   │   │   └── Login.tsx
 │   │   │
 │   │   ├── services/             # API istekleri
-│   │   │   └── index.js
+│   │   │   └── index.ts
 │   │   │
 │   │   ├── store/                # Global state (Redux/Zustand)
-│   │   │   └── store.js
+│   │   │   └── store.ts
 │   │   │
 │   │   └── styles/               # CSS/SCSS
 │   │   │   └── main.css
 │   │   │
 │   │   └── utils/                # Yardımcı fonksiyonlar
-│   │   │   └── helpers.js
+│   │   │   └── helpers.tsx
 │   │   │
-│   │   ├── App.jsx
-│   │   └── main.jsx
+│   │   ├── App.tsx
+│   │   └── main.tsx
 │   │
 │   ├── Dockerfile
 │   ├── index.html
@@ -377,15 +377,18 @@
 │
 ├── tests/                        # Test ve QA :contentReference[oaicite:3]{index=3}
 │   ├── backend/                  # Backend Testleri (Pytest)
-│   │   ├── test_auth.py
-│   │   ├── test_users.py
-│   │   └── test_database.py
+│   │   ├── placeholder_auth.py
+│   │   ├── placeholder_database.py
+│   │   ├── placeholder_users.py
+│   │   ├── test_config_key_file.py
+│   │   └── test_digital_signature.py
 │   │
 │   ├── frontend/                 # Frontend Testleri
-│   │   ├── jest.config.js
+│   │   ├── jest.config.ts
 │   │   └── react-testing-library/
-│   │       ├── Button.test.jsx
-│   │       └── Navbar.test.jsx
+│   │       ├── Button.test.tsx
+│   │       ├── Navbar.test.tsx
+│   │       └── useToast.test.tsx
 │   │
 │   └── ci-cd/                    # CI/CD Testleri
 │       ├── pip_audit.py
@@ -393,26 +396,26 @@
 │
 ├── ui-components/                # UI Bileşenleri :contentReference[oaicite:1]{index=1}
 │   ├── temel-bilesenler/         # Temel Bileşenler
-│   │   ├── Button.jsx
-│   │   ├── Input.jsx
-│   │   ├── Checkbox.jsx
-│   │   ├── Dropdown.jsx
-│   │   └── Modal.jsx
+│   │   ├── Button.tsx
+│   │   ├── Input.tsx
+│   │   ├── Checkbox.tsx
+│   │   ├── Dropdown.tsx
+│   │   └── Model.tsx
 │   │
 │   ├── navigasyon/               # Navigasyon
-│   │   ├── Navbar.jsx
-│   │   ├── Sidebar.jsx
-│   │   └── TabBar.jsx
+│   │   ├── Navbar.tsx
+│   │   ├── Sidebar.tsx
+│   │   └── TabBar.tsx
 │   │
 │   ├── dashboard-ogeleri/        # Dashboard Öğeleri
-│   │   ├── Panel.jsx
-│   │   ├── Widget.jsx
-│   │   └── Card.jsx
+│   │   ├── Panel.tsx
+│   │   ├── Widget.tsx
+│   │   └── Card.tsx
 │   │
 │   └── gorsel-elemanlar/         # Görsel Elemanlar
-│       ├── Avatar.jsx
-│       ├── Badge.jsx
-│       └── Tooltip.jsx
+│       ├── Avatar.tsx
+│       ├── Badge.tsx
+│       └── Tooltip.tsx
 │
 ├── .env                          # Ortam değişkenleri
 ├── .gitignore

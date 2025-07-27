@@ -1,8 +1,8 @@
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
-import { ThemeProvider } from '../hooks/useTheme';
-import { ToastProvider } from '../hooks/useToast';
-import { StoreProvider } from '../store/store';
+import { ThemeProvider } from '../hooks/useTheme.jsx';
+import { ToastProvider } from '../hooks/useToast.jsx';
+import { StoreProvider } from '../store/store.jsx';
 
 export default function MainLayout({ children }) {
   return (
