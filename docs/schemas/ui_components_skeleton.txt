@@ -3,23 +3,23 @@
 /ui-components
 │
 ├── Temel Bileşenler
-│   ├── Button.jsx
-│   ├── Input.jsx
-│   ├── Checkbox.jsx
-│   ├── Dropdown.jsx
-│   └── Modal.jsx
+│   ├── Button.tsx
+│   ├── Input.tsx
+│   ├── Checkbox.tsx
+│   ├── Dropdown.tsx
+│   └── Modal.tsx
 │
 ├── Navigasyon
-│   ├── Navbar.jsx
-│   ├── Sidebar.jsx
-│   └── TabBar.jsx
+│   ├── Navbar.tsx
+│   ├── Sidebar.tsx
+│   └── TabBar.tsx
 │
 ├── Dashboard Öğeleri
-│   ├── Panel.jsx
-│   ├── Widget.jsx
-│   └── Card.jsx
+│   ├── Panel.tsx
+│   ├── Widget.tsx
+│   └── Card.tsx
 │
 └── Görsel Elemanlar
-    ├── Avatar.jsx
-    ├── Badge.jsx
-    └── Tooltip.jsx
+    ├── Avatar.tsx
+    ├── Badge.tsx
+    └── Tooltip.tsx

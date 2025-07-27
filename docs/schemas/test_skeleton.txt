@@ -8,10 +8,10 @@
 │   └── test_database.py
 │
 ├── frontend/                 # Frontend Testleri
-│   ├── jest.config.js
+│   ├── jest.config.ts
 │   └── react-testing-library/
-│       ├── Button.test.jsx
-│       └── Navbar.test.jsx
+│       ├── Button.test.tsx
+│       └── Navbar.test.tsx
 │
 └── ci-cd/                    # CI/CD Testleri
     ├── pip_audit.py
