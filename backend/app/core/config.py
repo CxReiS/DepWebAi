@@ -5,9 +5,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    SECRET_KEY_FILE: Path = Path(
-        "D:/Python_Gereksinimleri/Venvler/secrets/deepseek.key"
-    )
+    SECRET_KEY_FILE: Path = Path(__file__).resolve().parents[3] / "secret.key"
     SECRET_KEY: str = "dummy-secret"
     DATABASE_URL: str = "sqlite:///./app.db"
     ADMIN_USER: str = "admin"
