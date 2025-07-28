@@ -6,6 +6,7 @@ import json
 
 LOCALE_DIR = Path(__file__).resolve().parents[1] / "locale"
 
+
 @lru_cache(maxsize=4)
 def load_locale(lang: str) -> dict:
     """Dil dosyasını yükler."""
@@ -18,5 +19,12 @@ def load_locale(lang: str) -> dict:
 def get_message(key: str, lang: str = "en", **kwargs) -> str:
     """Anahtar ile mesaj döndürür."""
     data = load_locale(lang)
-    message = data.get(key, key)
+    parts = key.split(".")
+    for part in parts:
+        if isinstance(data, dict):
+            data = data.get(part)
+        else:
+            data = None
+            break
+    message = data or key
     return message.format(**kwargs) if kwargs else message
