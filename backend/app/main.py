@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from typing import Awaitable, Callable
 
 from fastapi import Depends, FastAPI, Query, Request, Response
-from routes import health
+from app.routes import health
 from app.core.cors_control import setup_cors
 from app.core.error_handler import setup_errors
 from app.core.logger import logger
