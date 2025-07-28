@@ -1,4 +1,4 @@
-# DeepWebAi
+# DeepWebAi Gelişmiş Yapay Zeka 
 
 Bu proje FastAPI tabanlı bir backend ve React tabanlı bir frontend içerir. 
 Basit bir yapay zeka servisinin örnek iskeletini sunar.
