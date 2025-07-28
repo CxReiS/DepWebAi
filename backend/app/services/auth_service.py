@@ -7,7 +7,7 @@ from app.models.auth import LoginRequest, Token, UserCreate
 from app.models.user import UserORM, UserRead
 from app.core import security
 from app.database.session import SessionLocal
-from app.utils.helpers import get_message
+from app.core.helpers import get_message
 import os
 
 
