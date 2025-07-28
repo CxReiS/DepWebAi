@@ -2,7 +2,7 @@
 
 from datetime import datetime, timezone
 from fastapi import Depends, FastAPI, Query, Request
-from app.routes import auth_router, users_router, models_router
+from app.routes import auth, users, models, app as app_routes
 from app.utils.helpers import get_message
 from app.core.cors_control import setup_cors
 from app.core.error_handler import setup_errors
@@ -36,3 +36,4 @@ def health_check(lang: str = Query("en", description="Dil kodu")):
 app.include_router(auth_router)
 app.include_router(users_router)
 app.include_router(models_router)
+app.include_router(app_routes.router)
