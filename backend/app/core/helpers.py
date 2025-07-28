@@ -1,6 +1,5 @@
 """Genel yardımcı fonksiyonlar."""
 
-
 from app.utils.helpers import (
     get_message,
     load_locale,
