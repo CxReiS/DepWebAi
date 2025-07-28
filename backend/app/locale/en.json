@@ -1,6 +1,10 @@
 {
-  "health_ok": "ok",
-  "login_success": "Login successful",
-  "login_failed": "Invalid username or password",
-  "user_registered": "User registered"
+  "common": {
+    "health_ok": "ok"
+  },
+  "auth": {
+    "login_success": "Login successful",
+    "login_failed": "Invalid username or password",
+    "user_registered": "User registered"
+  }
 }

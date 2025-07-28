@@ -1,15 +1,15 @@
-"""Yardımcı fonksiyonlar ve çeviri işlemleri."""
+"""Genel yardımcı fonksiyonlar."""
 
-import json
 from functools import lru_cache
 from pathlib import Path
+import json
 
 LOCALE_DIR = Path(__file__).resolve().parents[1] / "locale"
 
 
 @lru_cache(maxsize=4)
 def load_locale(lang: str) -> dict:
-    """Belirtilen dil dosyasını okur."""
+    """Dil dosyasını yükler."""
     file_path = LOCALE_DIR / f"{lang}.json"
     if file_path.exists():
         return json.loads(file_path.read_text(encoding="utf-8"))
@@ -17,9 +17,10 @@ def load_locale(lang: str) -> dict:
 
 
 def get_message(key: str, lang: str = "en", **kwargs) -> str:
-    """Anahtara göre çeviri döndürür."""
+    """Anahtar ile mesaj döndürür."""
     data = load_locale(lang)
-    for part in key.split("."):
+    parts = key.split(".")
+    for part in parts:
         if isinstance(data, dict):
             data = data.get(part)
         else:
