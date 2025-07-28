@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { login } from '../services/api';
+import { login } from '../services';
 import Input from '../components/Input';
 import Button from '../components/Button';
-import { useToast } from '../hooks/useToast.jsx';
+import { useToast } from '../hooks/useToast';
 
 export default function Login() {
   const [username, setUsername] = useState('');

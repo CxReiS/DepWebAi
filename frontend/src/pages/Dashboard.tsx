@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getUsers } from '../services/api';
+import { getUsers } from '../services';
 import Panel from '../components/Panel';
 import Widget from '../components/Widget';
-import { useToast } from '../hooks/useToast.jsx';
+import { useToast } from '../hooks/useToast';
 
 export default function Dashboard() {
   const [users, setUsers] = useState([]);
