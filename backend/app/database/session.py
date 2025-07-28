@@ -15,8 +15,11 @@ Base.metadata.create_all(bind=engine)
 
 
 def get_db():
+    Base.metadata.create_all(bind=engine)
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
+
+__all__ = ["SessionLocal", "engine", "get_db"]

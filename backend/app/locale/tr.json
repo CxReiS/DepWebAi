@@ -1,6 +1,10 @@
 {
-  "health_ok": "tamam",
-  "login_success": "Giriş başarılı",
-  "login_failed": "Geçersiz kullanıcı adı veya parola",
-  "user_registered": "Kullanıcı kaydedildi"
+  "common": {
+    "health_ok": "tamam"
+  },
+  "auth": {
+    "login_success": "Giriş başarılı",
+    "login_failed": "Geçersiz kullanıcı adı veya parola",
+    "user_registered": "Kullanıcı kaydedildi"
+  }
 }
