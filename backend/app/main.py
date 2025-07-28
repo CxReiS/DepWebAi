@@ -3,6 +3,7 @@
 from datetime import datetime, timezone
 from fastapi import Depends, FastAPI, Query, Request
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 from app.routes import auth_router, users_router, models_router, app as app_routes
 from app.core.helpers import get_message
 
@@ -17,6 +18,11 @@ from app.routes.auth import router as auth_router
 from app.routes.users import router as users_router
 from app.routes.models import router as models_router
 from app.routes import app as app_routes
+=======
+from app.routes.auth import router as auth_router
+from app.routes.users import router as users_router
+from app.routes.models import router as models_router
+>>>>>>> Stashed changes
 =======
 from app.routes.auth import router as auth_router
 from app.routes.users import router as users_router
