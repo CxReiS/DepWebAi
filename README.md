@@ -20,5 +20,5 @@ E2E testleri için [Playwright](https://playwright.dev/) kullanılır. Canlı uy
 cd frontend
 npx playwright test
 ```
-K
+KLL
 
