@@ -1,4 +1,8 @@
+import sys
+from pathlib import Path
 import pytest
+
+sys.path.append(str(Path(__file__).resolve().parents[2]))
 from security.encryption import digital_signature as ds
 
 

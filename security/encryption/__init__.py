@@ -1,0 +1,2 @@
+"""Şifreleme alt modülü."""
+
