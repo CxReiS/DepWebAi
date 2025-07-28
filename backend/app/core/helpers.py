@@ -1,6 +1,5 @@
 """Genel yardımcı fonksiyonlar."""
 
-
 from app.utils.helpers import (
     get_message,
     load_locale,
@@ -46,3 +45,4 @@ def get_message(key: str, lang: str = "en", **kwargs) -> str:
             break
     message = data or key
     return message.format(**kwargs) if kwargs else message
+
