@@ -29,7 +29,7 @@ async def log_requests(request: Request, call_next):
 # Sağlık kontrolü için basit endpoint
 @app.get("/health")
 def health_check(lang: str = Query("en", description="Dil kodu")):
-    """Servisin çalışıp çalışmadığını kontrol eder."""
+    """Servisin calisip calismadigini kontrol eder."""
     return {"status": get_message("health_ok", lang)}
 
 # Router'ları ekliyoruz
