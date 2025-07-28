@@ -17,6 +17,7 @@ __all__ = [
     "slugify",
 ]
 
+
 from functools import lru_cache
 from pathlib import Path
 import json
