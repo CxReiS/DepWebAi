@@ -31,6 +31,7 @@ def get_message(key: str, lang: str = "en", **kwargs) -> str:
     return message.format(**kwargs) if kwargs else message
 
 
+
 def read_json(path: Path) -> Any:
     """JSON dosyasını okur."""
     return json.loads(path.read_text(encoding="utf-8"))
