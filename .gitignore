@@ -13,6 +13,7 @@ secrets/
 
 # Frontend build
 frontend/dist/
+tests/frontend/coverage/
 
 # Misc
 *.pyc

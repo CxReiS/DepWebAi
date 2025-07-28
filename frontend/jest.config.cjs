@@ -1,12 +1,4 @@
-module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'jsdom',
-  moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
-  },
-  globals: {
-    'ts-jest': {
-      useESM: true,
-    }
-  },
-};
+require('ts-node').register({
+  project: '../tests/frontend/tsconfig.json',
+});
+module.exports = require('../tests/frontend/jest.config.ts').default;
