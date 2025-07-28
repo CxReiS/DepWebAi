@@ -2,8 +2,21 @@
 
 from datetime import datetime, timezone
 from fastapi import Depends, FastAPI, Query, Request
+
 from app.routes import auth_router, users_router, models_router, app as app_routes
 from app.core.helpers import get_message
+
+
+from app.routes import auth_router, users_router, models_router, app as app_routes
+from app.core.helpers import get_message
+
+from app.routes.auth import router as auth_router
+from app.routes.users import router as users_router
+from app.routes.models import router as models_router
+from app.routes import app as app_routes
+from app.utils.helpers import get_message
+
+
 from app.core.cors_control import setup_cors
 from app.core.error_handler import setup_errors
 from app.core.rate_limiting import check_rate_limit
