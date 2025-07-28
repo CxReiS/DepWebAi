@@ -14,3 +14,9 @@ Backend uygulamasını çalıştırmak için:
 uvicorn backend.app.main:app --reload
 ```
 Frontend ise Vite kullanır.
+
+E2E testleri için [Playwright](https://playwright.dev/) kullanılır. Canlı uygulamanın ekran görüntüsünü almak için:
+```bash
+cd frontend
+npx playwright test
+```
