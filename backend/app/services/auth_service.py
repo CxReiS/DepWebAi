@@ -2,11 +2,13 @@
 
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
+import jwt
 
-from app.models.auth import LoginRequest, Token, UserCreate
+from app.models.auth import LoginRequest, Token, TokenData, UserCreate
 from app.models.user import UserORM, UserRead
 from app.core import security
 from app.database.session import SessionLocal
+from app.core.config import settings
 from app.core.helpers import get_message
 import os
 
@@ -55,4 +57,26 @@ def register_user(db: Session, new_user: UserCreate) -> UserRead:
     db.add(user)
     db.commit()
     db.refresh(user)
+    return UserRead.model_validate(user)
+
+
+def decode_token(token: str) -> TokenData:
+    """JWT'i çözümler."""
+    try:
+        payload = jwt.decode(
+            token, settings.SECRET_KEY, algorithms=[security.ALGORITHM]
+        )
+        return TokenData(sub=str(payload.get("sub")))
+    except jwt.PyJWTError as exc:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Geçersiz token") from exc
+
+
+def get_current_user(db: Session, token: str) -> UserRead:
+    """Token'dan kullanıcıyı getirir."""
+    data = decode_token(token)
+    if not data.sub:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Geçersiz token")
+    user = db.query(UserORM).get(int(data.sub))
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Kullanıcı bulunamadı")
     return UserRead.model_validate(user)
