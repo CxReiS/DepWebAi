@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 from uuid import uuid4
-sys.path.append(str(Path(__file__).resolve().parents[1]))
+sys.path.append(str(Path(__file__).resolve().parents[2] / 'backend'))
 
 from fastapi.testclient import TestClient
 from app.main import app
