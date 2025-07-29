@@ -1,0 +1,26 @@
+{
+  "folders": [
+    { "path": "." }
+  ],
+  "settings": {
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editor.enablePreview": false,
+    "workbench.sideBar.location": "left",
+    "workbench.panel.defaultLocation": "bottom",
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    "gitlens.currentLine.enabled": true,
+    "gitlens.hovers.enabled": true,
+    "gitlens.statusBar.enabled": true
+  },
+  "extensions": {
+    "recommendations": [
+      "eamodio.gitlens",
+      "mhutchie.git-graph",
+      "github.vscode-pull-request-github",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode"
+    ]
+  }
+}
