@@ -9,7 +9,9 @@ Basit bir yapay zeka servisinin ornek iskeletini sunar.
 bash scripts/init_project.sh
 ```
 
-Backend uygulamasını çalıştırmak icin:
+
+Backend uygulamasını calıştırmak için:
+
 ```bash
 uvicorn backend.app.main:app --reload
 ```
