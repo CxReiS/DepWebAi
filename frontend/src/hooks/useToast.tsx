@@ -1,12 +1,15 @@
 // Basit toast bildirimi yonetimi
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 
-const ToastContext = createContext();
+type Toast = { id: number; message: string };
+type ToastContextType = { addToast: (message: string) => void };
 
-export function ToastProvider({ children }) {
-  const [items, setItems] = useState([]);
+const ToastContext = createContext<ToastContextType | undefined>(undefined);
 
-  const addToast = (message) => {
+export function ToastProvider({ children }: { children: ReactNode }) {
+  const [items, setItems] = useState<Toast[]>([]);
+
+  const addToast = (message: string) => {
     const id = Date.now();
     setItems((v) => [...v, { id, message }]);
     setTimeout(() => setItems((v) => v.filter((t) => t.id !== id)), 3000);
@@ -24,4 +27,8 @@ export function ToastProvider({ children }) {
   );
 }
 
-export const useToast = () => useContext(ToastContext);
+export const useToast = (): ToastContextType => {
+  const ctx = useContext(ToastContext);
+  if (!ctx) throw new Error('ToastProvider missing');
+  return ctx;
+};
