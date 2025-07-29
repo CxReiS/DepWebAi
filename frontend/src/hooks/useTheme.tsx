@@ -1,28 +1,29 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useState, useEffect, type ReactNode, useMemo } from 'react';
 
-type ThemeContextType = {
+interface ThemeContextValue {
   theme: string;
-  setTheme: (value: string) => void;
-};
+  setTheme: (theme: string) => void;
+}
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
-
+export function ThemeProvider({ children }: { readonly children: ReactNode }) {
+  const [theme, setTheme] = useState<string>(() => localStorage.getItem('theme') || 'light');
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  const contextValue = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );
 }
-
-export const useTheme = (): ThemeContextType => {
+export const useTheme = () => {
   const ctx = useContext(ThemeContext);
-  return ctx ?? { theme: 'light', setTheme: () => {} };
+  if (!ctx) throw new Error('ThemeProvider gerekli');
+  return ctx;
 };

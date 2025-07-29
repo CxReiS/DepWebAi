@@ -6,6 +6,8 @@ from datetime import datetime, timezone
 from typing import Awaitable, Callable
 
 from fastapi import Depends, FastAPI, Query, Request, Response
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 from app.routes import health
 from app.core.cors_control import setup_cors
 from app.core.error_handler import setup_errors
@@ -22,6 +24,9 @@ def create_app() -> FastAPI:
     app = FastAPI(title="DeepWebAi", dependencies=[Depends(check_rate_limit)])
     setup_cors(app)
     setup_errors(app)
+    static_dir = Path(__file__).resolve().parent / "static"
+    if static_dir.exists():
+        app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
     @app.middleware("http")
     async def log_requests(
@@ -36,6 +41,10 @@ def create_app() -> FastAPI:
             response.status_code,
         )
         return response
+
+    @app.get("/")
+    def index() -> dict[str, str]:
+        return {"message": "DeepWebAi API"}
 
     @app.get("/health")
     def health_check(lang: str = Query("en", description="Dil kodu")) -> dict[str, str]:

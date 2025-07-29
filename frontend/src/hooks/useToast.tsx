@@ -1,22 +1,33 @@
 // Basit toast bildirimi yonetimi
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useState, type ReactNode, useMemo, useCallback } from 'react';
+interface Toast {
+  id: number;
+  message: string;
+}
 
-type Toast = { id: number; message: string };
-type ToastContextType = { addToast: (message: string) => void };
+interface ToastContextValue {
+  addToast: (message: string) => void;
+}
 
-const ToastContext = createContext<ToastContextType | undefined>(undefined);
+const ToastContext = createContext<ToastContextValue | undefined>(undefined);
 
-export function ToastProvider({ children }: { children: ReactNode }) {
+export function ToastProvider({ children }: { readonly children: ReactNode }) {
   const [items, setItems] = useState<Toast[]>([]);
 
-  const addToast = (message: string) => {
-    const id = Date.now();
-    setItems((v) => [...v, { id, message }]);
-    setTimeout(() => setItems((v) => v.filter((t) => t.id !== id)), 3000);
+  const removeToast = (id: number) => {
+    setItems((v) => v.filter((t) => t.id !== id));
   };
 
+  const addToast = useCallback((message: string) => {
+    const id = Date.now();
+    setItems((v) => [...v, { id, message }]);
+    setTimeout(() => removeToast(id), 3000);
+  }, []);
+
+  const contextValue = useMemo(() => ({ addToast }), [addToast]);
+
   return (
-    <ToastContext.Provider value={{ addToast }}>
+    <ToastContext.Provider value={contextValue}>
       {children}
       <div className="toast-container">
         {items.map((t) => (
@@ -27,8 +38,4 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export const useToast = (): ToastContextType => {
-  const ctx = useContext(ToastContext);
-  if (!ctx) throw new Error('ToastProvider missing');
-  return ctx;
-};
+// Remove useToast export from this file and move it to useToastHook.ts
