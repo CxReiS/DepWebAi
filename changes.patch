@@ -68,8 +68,6 @@ index 01e0f78e4fe75b7b85f5e9fb50cbbc22c86cd541..4fb5b159ee580a98b03392dfcbe22578
  app.include_router(health.router)
 \ No newline at end of file
 
-HcmV?d00001
-
 diff --git a/frontend/src/hooks/useAuth.ts b/frontend/src/hooks/useAuth.ts
 index f7c5a9894e33525e56a0cc2176198e73abd303f3..ff2fe6c38924d596c23cbb18274cdad29842719c 100644
 --- a/frontend/src/hooks/useAuth.ts
