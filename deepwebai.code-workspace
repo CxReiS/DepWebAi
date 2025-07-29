@@ -4,7 +4,7 @@
   ],
   "settings": {
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreview": true,
     "workbench.sideBar.location": "left",
     "workbench.panel.defaultLocation": "bottom",
     "editor.formatOnSave": true,
