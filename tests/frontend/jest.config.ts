@@ -20,7 +20,8 @@ const config = {
   coverageDirectory: '<rootDir>/../tests/frontend/coverage',
   globals: {
     'ts-jest': {
-      tsconfig: path.resolve(__dirname, 'tsconfig.json')
+      tsconfig: path.resolve(__dirname, 'tsconfig.json'),
+      diagnostics: false
     }
   }
 };

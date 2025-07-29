@@ -1,0 +1,21 @@
+diff a/tests/frontend/tsconfig.json b/tests/frontend/tsconfig.json	(rejected hunks)
+@@ -1,17 +1,18 @@
+ {
+   "extends": "../../frontend/tsconfig.app.json",
+   "compilerOptions": {
+     "noEmit": true,
+     "types": ["jest", "@testing-library/jest-dom", "node"],
+     "esModuleInterop": true,
+     "module": "commonjs",
+     "moduleResolution": "node",
+     "verbatimModuleSyntax": false,
+-    "jsx": "react-jsx"
++    "jsx": "react-jsx",
++    "typeRoots": ["../../frontend/node_modules/@types", "../../frontend/node_modules"]
+   },
+   "include": [
+     "../../frontend/src",
+     "**/*.ts",
+     "**/*.tsx"
+   ]
+ }
