@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
 import Avatar from './Avatar';
-
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const toggle = () => setTheme(theme === 'light' ? 'dark' : 'light');
