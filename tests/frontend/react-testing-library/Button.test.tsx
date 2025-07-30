@@ -7,3 +7,9 @@ test('buton tiklaninca callback calisir', () => {
   fireEvent.click(screen.getByRole('button'));
   expect(onClick).toHaveBeenCalled();
 });
+
+test('variant sinifi uygulanir', () => {
+  render(<Button variant="secondary">Test</Button>);
+  const btn = screen.getByRole('button');
+  expect(btn.className).toContain('button-secondary');
+});

@@ -1,21 +1,23 @@
-import { ReactNode, MouseEventHandler } from 'react';
+import { forwardRef, type ButtonHTMLAttributes } from 'react';
 
-type ButtonProps = {
-  children: ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  type?: 'button' | 'submit' | 'reset';
-  className?: string;
+export type ButtonVariant = 'primary' | 'secondary';
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+}
+
+const variantClass: Record<ButtonVariant, string> = {
+  primary: 'button',
+  secondary: 'button button-secondary',
 };
 
-export default function Button({
-  children,
-  onClick,
-  type = 'button',
-  className,
-}: ButtonProps) {
-  return (
-    <button type={type} onClick={onClick} className={className}>
-      {children}
-    </button>
-  );
-}
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant = 'primary', className = '', ...rest }, ref) => {
+    const cls = `${variantClass[variant]} ${className}`.trim();
+    return <button ref={ref} className={cls} {...rest} />;
+  }
+);
+
+Button.displayName = 'Button';
+
+export default Button;
