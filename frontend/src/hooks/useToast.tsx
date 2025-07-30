@@ -1,5 +1,13 @@
 // Basit toast bildirimi yonetimi
-import { createContext, useState, type ReactNode, useMemo, useCallback } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  type ReactNode,
+  useCallback,
+  useMemo,
+} from 'react';
+
 interface Toast {
   id: number;
   message: string;
@@ -38,4 +46,8 @@ export function ToastProvider({ children }: { readonly children: ReactNode }) {
   );
 }
 
-// Remove useToast export from this file and move it to useToastHook.ts
+export const useToast = () => {
+  const ctx = useContext(ToastContext);
+  if (!ctx) throw new Error('ToastProvider gerekli');
+  return ctx;
+};
